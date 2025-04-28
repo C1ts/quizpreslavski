@@ -1,0 +1,323 @@
+html, body {
+    height: 100%;
+    min-height: 100vh;
+}
+body {
+    min-height: 100vh;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(ellipse at 50% 40%, #232b4e 0%, #0a1026 100%);
+    color: #f7f8fa;
+    overflow-x: hidden;
+    animation: bgMove 18s linear infinite alternate;
+}
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    margin: 0 auto;
+    background: rgba(20, 24, 48, 0.98);
+    border-radius: 2.2rem;
+    border: 3px solid #f7b42c;
+    box-shadow: 0 16px 64px #000c, 0 2px 8px #f7b42c44;
+    padding: 3.5rem 2.5rem 2.5rem 2.5rem;
+    max-width: 540px;
+    width: 100%;
+    animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+.school-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.logo-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.7rem auto;
+    background: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    box-shadow: 0 0 0 8px #f7b42c, 0 12px 48px #1a1e3a55;
+    width: 140px;
+    height: 140px;
+}
+
+.school-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%;
+    filter: drop-shadow(0 2px 8px #232b4e88);
+    background: #fff;
+    border: none;
+    margin: 0;
+}
+
+.school-name {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #f7b42c;
+    letter-spacing: 1.5px;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-shadow: 0 2px 8px #232b4e, 0 1px 0 #fff, 0 0 2px #fff;
+    background: none;
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    padding-bottom: 0.7rem;
+}
+
+.main-title {
+    font-size: 3.3rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #f7b42c 0%, #6a82fb 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #f7b42c;
+    margin-bottom: 2.7rem;
+    letter-spacing: 4px;
+    text-shadow: 0 8px 32px #232b4e, 0 2px 0 #fff, 0 0 12px #6a82fb99;
+    filter: drop-shadow(0 4px 16px #232b4e88);
+    animation: popIn 1.3s cubic-bezier(.4,0,.2,1);
+}
+
+.intro-card, .question-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.7rem;
+    margin-bottom: 2.7rem;
+    padding: 2.5rem 1.7rem 2.7rem 1.7rem;
+    box-shadow: 0 12px 48px #000a;
+    border: 2.5px solid #f7b42c;
+    background: linear-gradient(120deg, #232b4e 60%, #1a1e3a 100%);
+    color: #fff;
+    animation: fadeInCard 1.2s cubic-bezier(.4,0,.2,1);
+}
+@keyframes fadeInCard {
+    0% { opacity: 0; transform: scale(0.95) translateY(40px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: #f7b42c;
+    margin-bottom: 0.7rem;
+    font-weight: 600;
+    text-shadow: 0 2px 8px #232b4e;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #1a1e3a;
+    border-radius: 8px;
+    margin-bottom: 2.2rem;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #f7b42c 0%, #6a82fb 100%);
+    box-shadow: 0 2px 8px #f7b42c88;
+    border-radius: 8px;
+    width: 0;
+    transition: width 0.5s cubic-bezier(.4,0,.2,1);
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 2.7rem 0 1.7rem 0;
+}
+
+.answer-btn {
+    background: linear-gradient(90deg, #232b4e 60%, #6a82fb 100%);
+    border: 2.5px solid #f7b42c;
+    border-radius: 1.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #f7b42c;
+    padding: 1.5rem 0.5rem;
+    margin: 0.2rem 0;
+    cursor: pointer;
+    box-shadow: 0 4px 24px #000a;
+    animation: fadeIn 0.7s cubic-bezier(.4,0,.2,1);
+    outline: none;
+    position: relative;
+}
+
+.answer-btn:hover:not([disabled]) {
+    background: linear-gradient(90deg, #f7b42c 60%, #6a82fb 100%);
+    color: #232b4e;
+    transform: scale(1.06);
+    box-shadow: 0 4px 24px #f7b42c55;
+    z-index: 2;
+}
+
+.answer-btn.correct {
+    background: linear-gradient(90deg, #45e994 60%, #f7b42c 100%);
+    color: #232b4e;
+    border-color: #45e994;
+    animation: pulse 0.7s;
+}
+
+.answer-btn.incorrect {
+    background: linear-gradient(90deg, #fc5c7d 60%, #232b4e 100%);
+    color: #fff;
+    border-color: #fc5c7d;
+    animation: shake 0.5s;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-8px); }
+    40% { transform: translateX(8px); }
+    60% { transform: translateX(-8px); }
+    80% { transform: translateX(8px); }
+}
+
+.joker-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+    font-size: 1.25rem;
+    font-weight: 900;
+    border-radius: 1.5rem;
+    padding: 1.1rem 2.7rem;
+    background: linear-gradient(90deg, #f7b42c 0%, #6a82fb 100%);
+    color: #232b4e;
+    border: 2.5px solid #f7b42c;
+    box-shadow: 0 4px 24px #f7b42c55, 0 2px 8px #6a82fb44;
+    transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+    position: relative;
+}
+.joker-btn:before {
+    content: '\1F52E';
+    font-size: 1.5em;
+    margin-right: 0.7em;
+    vertical-align: middle;
+}
+.joker-btn:active {
+    background: linear-gradient(90deg, #6a82fb 60%, #f7b42c 100%);
+    transform: scale(0.97);
+}
+
+#question-number {
+    font-size: 1.1rem;
+    color: #f7b42c;
+    margin-top: 0.7rem;
+    letter-spacing: 1.2px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px #232b4e;
+}
+
+.explanation {
+    margin-top: 1.3rem;
+    font-size: 1.08rem;
+    color: #f7b42c;
+    background: #232b4e;
+    border-radius: 0.9rem;
+    border: 2px solid #f7b42c;
+    padding: 1rem 1.2rem;
+    animation: fadeIn 0.7s cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 2px 12px #f7b42c33;
+}
+
+.result-container {
+    animation: fadeIn 1s cubic-bezier(.4,0,.2,1);
+}
+
+.result-display {
+    margin: 2.5rem 0 1.5rem 0;
+    font-size: 2rem;
+    font-weight: 900;
+    color: #f7b42c;
+    animation: popIn 0.7s cubic-bezier(.4,0,.2,1);
+    text-shadow: 0 2px 8px #232b4e;
+}
+
+.start-btn, .restart-btn {
+    background: linear-gradient(90deg, #f7b42c 60%, #6a82fb 100%);
+    color: #232b4e;
+    border: 2.5px solid #f7b42c;
+    border-radius: 1.7rem;
+    font-size: 1.35rem;
+    padding: 1.3rem 3.2rem;
+    margin-top: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    background: linear-gradient(90deg, #f7b42c 0%, #6a82fb 100%);
+    color: #232b4e;
+    box-shadow: 0 8px 32px #f7b42c55, 0 2px 8px #6a82fb44;
+    transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
+    animation: fadeIn 1.2s cubic-bezier(.4,0,.2,1);
+}
+.start-btn:hover, .restart-btn:hover {
+    background: linear-gradient(90deg, #6a82fb 0%, #f7b42c 100%);
+    color: #fff;
+    border-color: #6a82fb;
+    transform: scale(1.10);
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 1.2rem 0.5rem;
+        max-width: 99vw;
+    }
+    .main-title {
+        font-size: 2.1rem;
+    }
+    .school-logo {
+        width: 60px;
+        height: 60px;
+    }
+    .logo-bg {
+        width: 70px;
+        height: 70px;
+        padding: 5px;
+    }
+    .intro-card, .question-card {
+        padding: 1.2rem 0.5rem 1.5rem 0.5rem;
+    }
+    .answer-btn {
+        font-size: 1.05rem;
+        padding: 1rem 0.2rem;
+    }
+    .joker-btn {
+        font-size: 1.05rem;
+        padding: 0.8rem 1.2rem;
+    }
+}
